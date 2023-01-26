@@ -1,0 +1,17 @@
+import socket
+
+def main():
+
+    #TCP socket
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    client_socket.connect(('192.168.52.131', 8888))
+
+    #Receive quote
+    quote = client_socket.recv(1024).decode()
+    print("Received quote:", quote)
+
+    client_socket.close()
+
+if __name__ == '__main__':
+        main()
